@@ -3,28 +3,29 @@ var searchUrl = 'http://api.bing.net/qson.aspx?=';//INSERT_QUERY_HERE&JsonType=c
 
 $('input').on('keyup', function (evt) {
 	if(evt.keyCode === 13){
-		getStuff($(this).val());
+		getStuffs($(this).val());
 	}
 });
 
-function getStuff(query) {
+function getStuffs(query) {
 	var q = query;
 	var pageLimit = 30;
-	var url = encodeURI(searchUrl + '&q=' + query + '&JsonType=callback&JsonCallback=?');
-
+	var url = encodeURI(searchUrl + '&query=' + query + '&JsonType=callback&JsonCallback=?');
+	console.log(url)
 	$.ajax({
 		url: url,
 		dataType: 'jsonp',
 	}).done(function(response){
-		render(response.stuff);
+		render(response.stuffs);
 	});
 }
 
 
-function render(stuff) {
+function render(stuffs) {
 	var results = $('.results');
 	results.empty();
-	for(var i = 0; i < stuff.length; i++){
+	console.log(results);
+	for(var i = 0; i < stuffs.length; i++){
 		results.append(createStuffHTML(stuff[i]));
 	}
 }
