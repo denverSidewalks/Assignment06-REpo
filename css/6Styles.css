@@ -44,7 +44,9 @@ padding: 15px;
 }
 
 .results {
-  display: -webkit-box;
+	width: 300px;
+	height: 500px;
+ /* display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -52,6 +54,7 @@ padding: 15px;
   
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+  */
 }
 
 .stuff {
